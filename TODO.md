@@ -1,0 +1,78 @@
+# TigrisEuphrates progress
+Current task: write initial TODO list
+
+## Play the game
+
+- [] components
+  - [] game board
+  - [] civilization tiles
+  - [] unification tiles
+  - [] catastrophe tiles
+  - [] player screen
+  - [] leaders
+  - [] monuments
+  - [] treasure tokens
+  - [] victory point tokens
+  - [] cloth bag
+  - [] civilization buildings (*) 
+  - [] wonder tile (*)
+  - [] shedu idol (*)
+
+- [] setup
+  - [] game board
+    - [] place temples
+    - [] place treasures
+  - [] reserves
+    - [] fill cloth bag
+    - [] prepare monuments
+  - [] dynasties
+    - [] leaders
+    - [] unification tile
+    - [] catastrophe tiles
+    - [] screen
+    - [] civilization tiles
+  - [] choose starting player
+ 
+- [] turns
+  - [] resolve unification
+    - [] place unification tile
+    - [] resolve wars
+  - [] resolve wars
+    - [] choose war
+    - [] resolve war
+      - [] determine attacker
+      - [] count supporters
+      - [] commit tiles
+      - [] determine winner
+      - [] consequences
+        - [] withdraw loser's leader 
+        - [] discard supporters
+        - [] gain VPs
+    - [] resolve wars
+  - [] resolve revolt
+    - [] count temples
+    - [] commit temples
+    - [] determine winner
+    - [] consequences  
+      - [] withdraw loser's leader
+      - [] gain VPs
+  - [] treasure distribution
+  - [] build monument
+    - [] flip tiles
+    - [] choose monument
+  - [] actions
+    - [] position a leader
+      - [] restrictions
+      - [] resolve revolt
+      - [] treasure distribution
+    - [] place a tile
+      - [] restrictions
+      - [] resolve unification
+      - [] treasure distribution
+      - [] build monument
+      - [] gain VP
+    - [] play a catastrophe tile
+    - [] replace tiles
+  - [] end turn
+    - [] gain VPs from monuments
+    - [] draw tiles
