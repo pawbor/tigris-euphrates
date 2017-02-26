@@ -1,5 +1,5 @@
 # TigrisEuphrates progress
-Current task: Define basic logic for Game Board object
+Current task: Configure Travis CI
 
 ## Play the game
 
