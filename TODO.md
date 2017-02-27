@@ -1,13 +1,17 @@
 # TigrisEuphrates progress
-Current task: Configure Travis CI
+Current task: Add tiles
+
+## Additional tasks
+
+- [ ] Add tile slot in BoardSpace
 
 ## Play the game
 
 - [ ] components
   - [x] game board
-  - [ ] civilization tiles
-  - [ ] unification tiles
-  - [ ] catastrophe tiles
+  - [x] civilization tiles
+  - [x] unification tiles
+  - [x] catastrophe tiles
   - [ ] player screen
   - [ ] leaders
   - [ ] monuments
