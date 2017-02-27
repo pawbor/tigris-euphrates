@@ -4,16 +4,12 @@ export enum BoardSpaceType {
   TEMPLE
 }
 
-export class BoardSpace {
+export interface BoardSpace {
   type: BoardSpaceType;
 }
 
-export function createSpace(type: BoardSpaceType): BoardSpace {
+export function createBoardSpace(type: BoardSpaceType): BoardSpace {
   return {
-    type
+    get type() { return type; }
   };
-}
-
-export function spaceMatchesType(space: BoardSpace, type: BoardSpaceType): boolean {
-  return space.type === type;
 }

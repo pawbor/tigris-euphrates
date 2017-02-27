@@ -1,5 +1,5 @@
 # TigrisEuphrates progress
-Current task: Add tiles
+Current task: Game board refactoring
 
 ## Additional tasks
 
