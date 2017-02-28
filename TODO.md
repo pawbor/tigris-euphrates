@@ -1,5 +1,5 @@
 # TigrisEuphrates progress
-Current task: Game board refactoring
+Current task: Add leaders
 
 ## Additional tasks
 
@@ -13,7 +13,7 @@ Current task: Game board refactoring
   - [x] unification tiles
   - [x] catastrophe tiles
   - [ ] player screen
-  - [ ] leaders
+  - [x] leaders
   - [ ] monuments
   - [ ] treasure tokens
   - [ ] victory point tokens
