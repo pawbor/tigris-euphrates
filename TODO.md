@@ -1,5 +1,5 @@
 # TigrisEuphrates progress
-Current task: Add leaders
+Current task: Add monuments
 
 ## Additional tasks
 
