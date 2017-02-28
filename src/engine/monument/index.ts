@@ -1,0 +1,1 @@
+export {createAllMonuments} from './monument';
