@@ -1,11 +1,14 @@
 # TigrisEuphrates progress
-Current task: Add monuments
+Current task: Add tokens
 
 ## Additional tasks
 
 - [ ] Add tile slot in BoardSpace
+- [ ] Add leader slot to BoardSpace
+- [ ] Add monument slot to BoardSpace
+- [ ] Add treasure slot to BoardSpace
 
-## Play the game
+## Play the game - engine
 
 - [ ] components
   - [x] game board
@@ -14,9 +17,9 @@ Current task: Add monuments
   - [x] catastrophe tiles
   - [ ] player screen
   - [x] leaders
-  - [ ] monuments
-  - [ ] treasure tokens
-  - [ ] victory point tokens
+  - [x] monuments
+  - [x] treasure tokens
+  - [x] victory point tokens
   - [ ] cloth bag
   - [ ] civilization buildings (*) 
   - [ ] wonder tile (*)
