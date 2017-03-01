@@ -20,7 +20,7 @@ Current task: Add tokens
   - [x] monuments
   - [x] treasure tokens
   - [x] victory point tokens
-  - [ ] cloth bag
+  - [x] cloth bag
   - [ ] civilization buildings (*) 
   - [ ] wonder tile (*)
   - [ ] shedu idol (*)
