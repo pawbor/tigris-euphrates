@@ -14,7 +14,7 @@ export type BoardRow = BoardSpace[];
 
 export function createGameBoard(boardDef: GameBoardDef): GameBoard {
   const error = validateGameBoardDef(boardDef);
-  if(error) {
+  if (error) {
     throw new Error(error);
   }
 

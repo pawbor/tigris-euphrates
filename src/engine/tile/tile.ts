@@ -1,3 +1,5 @@
+export type TileType = 'CivilizationTile' | 'CatastropheTile'| 'UnificationTile';
+
 export interface Tile {
-  type: string;
+  type: TileType;
 }

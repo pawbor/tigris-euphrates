@@ -1,5 +1,5 @@
 # TigrisEuphrates progress
-Current task: Add tokens
+Current task: Add player screen
 
 ## Additional tasks
 
@@ -15,7 +15,7 @@ Current task: Add tokens
   - [x] civilization tiles
   - [x] unification tiles
   - [x] catastrophe tiles
-  - [ ] player screen
+  - [x] player screen
   - [x] leaders
   - [x] monuments
   - [x] treasure tokens

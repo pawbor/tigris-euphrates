@@ -1,11 +1,11 @@
-export type MonumentColor = 'Black' | 'Blue' | 'Green' | 'Red';
+import {Color} from '../common';
 
 export interface Monument {
-  baseColor: MonumentColor;
-  topColor: MonumentColor;
+  baseColor: Color;
+  topColor: Color;
 };
 
-export function createMonument(baseColor: MonumentColor, topColor: MonumentColor): Monument {
+export function createMonument(baseColor: Color, topColor: Color): Monument {
   return {
     get baseColor() { return baseColor; },
     get topColor() { return topColor; }
