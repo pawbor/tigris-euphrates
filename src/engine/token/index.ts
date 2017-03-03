@@ -1,3 +1,5 @@
+export {Token} from './token'
+
 export {
   createAmulets,
   createBricks,

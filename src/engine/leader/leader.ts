@@ -1,6 +1,6 @@
-export type LeaderRole = 'Farmer' | 'King' | 'Priest' | 'Trader';
+import {Dynasty} from '../common';
 
-export type Dynasty = 'Archer' | 'Bull' | 'Lion' | 'Pot';
+export type LeaderRole = 'Farmer' | 'King' | 'Priest' | 'Trader';
 
 export interface Leader {
   dynasty: Dynasty;
@@ -36,22 +36,5 @@ export function createLeaders(dynasty: Dynasty): Leader[] {
     createPriest(dynasty),
     createFarmer(dynasty),
     createTrader(dynasty),
-  ]
+  ];
 };
-
-export function createArcherLeaders(): Leader[] {
-  return createLeaders('Archer');
-}
-
-export function createBullLeaders(): Leader[] {
-  return createLeaders('Bull');
-}
-
-export function createLionLeaders(): Leader[] {
-  return createLeaders('Lion');
-}
-
-export function createPotLeaders(): Leader[] {
-  return createLeaders('Pot');
-}
-

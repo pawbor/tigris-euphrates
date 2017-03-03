@@ -27,4 +27,5 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
+  - ng lint
   - ng test --watch false

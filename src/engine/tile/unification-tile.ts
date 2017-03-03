@@ -1,7 +1,7 @@
-import {Tile} from './tile';
+import {Tile, TileType} from './tile';
 
 export function createUnificationTile(): Tile {
   return {
-    get type() { return 'UnificationTile'; }
+    get type(): TileType { return 'UnificationTile'; }
   };
 }

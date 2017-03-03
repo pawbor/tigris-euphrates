@@ -1,6 +1,4 @@
 export {
-  createArcherLeaders,
-  createBullLeaders,
-  createLionLeaders,
-  createPotLeaders
+  Leader,
+  createLeaders
 } from './leader';
