@@ -1,19 +1,22 @@
 import {
   BoardSpaceType,
-  createBoardSpace
+  emptyBoardSpace
 } from './board-space';
 
-describe('createBoardSpace', () => {
-  const types = [
-    BoardSpaceType.GROUND,
-    BoardSpaceType.WATER,
-    BoardSpaceType.TEMPLE
+describe('emptyBoardSpace', () => {
+  const types: BoardSpaceType[] = [
+    'Ground',
+    'Water',
+    'Temple'
   ];
 
   it('should create BoardSpace object', () => {
     types.forEach((type) => {
-      const space = createBoardSpace(type);
-      const expected = jasmine.objectContaining({type});
+      const space = emptyBoardSpace(type);
+      const expected = jasmine.objectContaining({
+        type,
+        slot: {type: 'Empty'}
+      });
       expect(space).toEqual(expected);
     });
   });
