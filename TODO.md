@@ -1,12 +1,19 @@
 # TigrisEuphrates progress
-Current task: Add player screen
+Current task: Add BoardSpace slot
+Subtask: empty slot
+Next: civilization tile slot
 
 ## Additional tasks
 
-- [ ] Add tile slot in BoardSpace
-- [ ] Add leader slot to BoardSpace
-- [ ] Add monument slot to BoardSpace
-- [ ] Add treasure slot to BoardSpace
+- [ ] Add BoardSpace slot
+  - [x] empty
+  - [ ] civilization tile slot
+    - [ ] tile
+    - [ ] monument
+    - [ ] treasure
+  - [ ] catastrophe tile slot
+  - [ ] unification tile slot
+  - [ ] leader
 
 ## Play the game - engine
 

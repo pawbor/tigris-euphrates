@@ -1,15 +1,26 @@
-export enum BoardSpaceType {
-  GROUND,
-  WATER,
-  TEMPLE
+import { createEmptySlot } from './empty-slot';
+
+export type BoardSpaceType = 'Ground' | 'Water' | 'Temple';
+
+export type SlotType = 'Empty';
+
+export interface BoardSpaceSlot {
+  type: SlotType;
 }
 
 export interface BoardSpace {
   type: BoardSpaceType;
+  slot: BoardSpaceSlot;
 }
 
-export function createBoardSpace(type: BoardSpaceType): BoardSpace {
+export function emptyBoardSpace(type: BoardSpaceType): BoardSpace {
+  const slot = createEmptySlot();
+  return createBoardSpace(type, slot);
+}
+
+function createBoardSpace(type: BoardSpaceType, slot: BoardSpaceSlot): BoardSpace {
   return {
-    get type() { return type; }
+    get type(): BoardSpaceType { return type; },
+    get slot(): BoardSpaceSlot { return slot; }
   };
 }

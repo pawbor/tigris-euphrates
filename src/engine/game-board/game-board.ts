@@ -1,7 +1,7 @@
 import {
   BoardSpace,
   BoardSpaceType,
-  createBoardSpace
+  emptyBoardSpace
 } from './board-space';
 
 export type GameBoardDef = BoardRowDef[];
@@ -20,7 +20,7 @@ export function createGameBoard(boardDef: GameBoardDef): GameBoard {
 
   return boardDef.map(
     (rowDef) => rowDef.map(
-      (type) => createBoardSpace(type)
+      (type) => emptyBoardSpace(type)
     )
   );
 }
