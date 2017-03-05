@@ -1,7 +1,11 @@
-import {Token, TokenType} from './token';
+import {Token} from './token';
 
-export function createTreasureToken(): Token {
+export interface TreasureToken extends Token {
+  type: 'TreasureToken';
+}
+
+export function createTreasureToken(): TreasureToken {
   return {
-    get type(): TokenType { return 'TreasureToken'; }
+    get type(): 'TreasureToken' { return 'TreasureToken'; }
   };
 }

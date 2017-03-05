@@ -1,1 +1,1 @@
-export {createAllMonuments} from './monument';
+export {Monument, createAllMonuments} from './monument';

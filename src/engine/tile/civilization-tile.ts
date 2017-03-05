@@ -1,14 +1,15 @@
-import {Tile, TileType} from './tile';
+import { Tile, TileType } from './tile';
 
 export type CivilizationSphere = 'Temple' | 'Farm' | 'Settlement' | 'Market';
 
 export interface CivilizationTile extends Tile {
+  type: 'CivilizationTile';
   sphere: CivilizationSphere;
 };
 
-export function createCivilizationTile(sphere: CivilizationSphere): CivilizationTile {
+function createCivilizationTile(sphere: CivilizationSphere): CivilizationTile {
   return {
-    get type(): TileType { return 'CivilizationTile'; },
+    get type(): 'CivilizationTile' { return 'CivilizationTile'; },
     get sphere(): CivilizationSphere { return sphere; }
   };
 }

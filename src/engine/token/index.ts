@@ -8,5 +8,6 @@ export {
 } from './victory-point-token'
 
 export {
+  TreasureToken,
   createTreasureToken
 } from './treasure-token'
