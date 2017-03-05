@@ -1,3 +1,4 @@
+import { createLeaders } from 'engine/leader';
 import { createFarm, createCatastropheTile } from 'engine/tile';
 
 import { EmptySlot, createEmptySlot } from './empty-slot';
@@ -20,10 +21,7 @@ describe('EmptySlot', () => {
       const tile = createFarm();
       const slot = empty.placeCivilizationTile(tile);
       const expected = jasmine.objectContaining({
-        type: 'CivilizationTile',
-        tile,
-        monument: undefined,
-        treasure: undefined
+        type: 'CivilizationTile', tile, monument: undefined, treasure: undefined
       });
       expect(slot).toEqual(expected);
       expect(empty.type).toEqual('Empty');
@@ -35,8 +33,19 @@ describe('EmptySlot', () => {
       const tile = createCatastropheTile();
       const slot = empty.placeCatastropheTile(tile);
       const expected = jasmine.objectContaining({
-        type: 'CatastropheTile',
-        tile
+        type: 'CatastropheTile', tile
+      });
+      expect(slot).toEqual(expected);
+      expect(empty.type).toEqual('Empty');
+    });
+  });
+
+  describe('placeLeader', () => {
+    it('should create LeaderSlot', () => {
+      const leader = createLeaders('Bull')[0];
+      const slot = empty.placeLeader(leader);
+      const expected = jasmine.objectContaining({
+        type: 'Leader', leader
       });
       expect(slot).toEqual(expected);
       expect(empty.type).toEqual('Empty');
