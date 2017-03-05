@@ -1,6 +1,6 @@
 # TigrisEuphrates progress
 Current task: Add BoardSpace slot
-Subtask: civilization tile slot
+Subtask: catastrophe tile slot
 
 ## Additional tasks
 

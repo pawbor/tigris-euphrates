@@ -1,8 +1,8 @@
-export {Tile} from './tile'
+export { Tile } from './tile'
 
-export {createUnificationTile} from './unification-tile'
+export { createUnificationTile } from './unification-tile'
 
-export {createCatastropheTile} from './catastrophe-tile'
+export { CatastropheTile, createCatastropheTile } from './catastrophe-tile'
 
 export {
   CivilizationTile,
