@@ -1,9 +1,10 @@
 import { Monument } from 'engine/monument';
-import { CivilizationTile } from 'engine/tile';
+import { CivilizationTile, UnificationTile } from 'engine/tile';
 import { TreasureToken } from 'engine/token';
 
 import { BoardSpaceSlot, SlotType } from './board-space';
 import { EmptySlot } from './empty-slot';
+import { UnificationTileSlot, createUnificationTileSlot } from './unification-tile-slot';
 
 export interface CivilizationTileSlot extends BoardSpaceSlot {
   type: 'CivilizationTile';
@@ -12,6 +13,7 @@ export interface CivilizationTileSlot extends BoardSpaceSlot {
   treasure?: TreasureToken;
   placeMonument(monument: Monument): CivilizationTileSlot;
   placeTreasureToken(treasure: TreasureToken): CivilizationTileSlot;
+  placeUnificationTile(tile: UnificationTile): UnificationTileSlot;
 }
 
 export function createCivilizationTileSlot(tile: CivilizationTile, monument?: Monument, treasure?: TreasureToken): CivilizationTileSlot {
@@ -27,7 +29,11 @@ export function createCivilizationTileSlot(tile: CivilizationTile, monument?: Mo
     // tslint:disable-next-line:no-shadowed-variable
     placeTreasureToken(treasure: TreasureToken): CivilizationTileSlot {
       return placeTreasureToken(this, treasure);
-    }
+    },
+    // tslint:disable-next-line:no-shadowed-variable
+    placeUnificationTile(tile: UnificationTile): UnificationTileSlot {
+      return placeUnificationTile(this, tile);
+    },
   };
 }
 
@@ -43,4 +49,8 @@ function placeMonument(slot: CivilizationTileSlot, monument: Monument): Civiliza
     throw new Error('civilization-tile-slot.monument-placed');
   }
   return createCivilizationTileSlot(slot.tile, monument, slot.treasure);
+}
+
+function placeUnificationTile(slot: CivilizationTileSlot, tile: UnificationTile): UnificationTileSlot {
+  return createUnificationTileSlot(slot, tile);
 }

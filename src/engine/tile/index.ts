@@ -1,6 +1,6 @@
 export { Tile } from './tile'
 
-export { createUnificationTile } from './unification-tile'
+export { UnificationTile, createUnificationTile } from './unification-tile'
 
 export { CatastropheTile, createCatastropheTile } from './catastrophe-tile'
 

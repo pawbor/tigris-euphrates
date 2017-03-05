@@ -2,7 +2,7 @@ import { createEmptySlot } from './empty-slot';
 
 export type BoardSpaceType = 'Ground' | 'Water' | 'Temple';
 
-export type SlotType = 'Empty' | 'CivilizationTile' | 'CatastropheTile';
+export type SlotType = 'Empty' | 'CivilizationTile' | 'CatastropheTile' | 'UnificationTile';
 
 export interface BoardSpaceSlot {
   type: SlotType;
