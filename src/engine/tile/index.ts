@@ -11,5 +11,3 @@ export {
   createSettlement,
   createTemple
 } from './civilization-tile'
-
-

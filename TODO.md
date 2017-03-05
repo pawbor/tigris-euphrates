@@ -1,6 +1,6 @@
 # TigrisEuphrates progress
 Current task: Add BoardSpace slot
-Subtask: unification tile slot
+Subtask: leader slot
 
 ## Additional tasks
 
@@ -12,7 +12,7 @@ Subtask: unification tile slot
     - [x] treasure
   - [x] catastrophe tile slot
   - [x] unification tile slot
-  - [ ] leader
+  - [x] leader
 
 ## Play the game - engine
 
