@@ -1,4 +1,4 @@
-import { createFarm } from 'engine/tile';
+import { createFarm, createCatastropheTile } from 'engine/tile';
 
 import { EmptySlot, createEmptySlot } from './empty-slot';
 
@@ -16,7 +16,7 @@ describe('EmptySlot', () => {
   const empty = createEmptySlot();
 
   describe('placeCivilizationTile', () => {
-    it('should create TileSlot with CivilizationTile', () => {
+    it('should create CivilizationTileSlot', () => {
       const tile = createFarm();
       const slot = empty.placeCivilizationTile(tile);
       const expected = jasmine.objectContaining({
@@ -24,6 +24,19 @@ describe('EmptySlot', () => {
         tile,
         monument: undefined,
         treasure: undefined
+      });
+      expect(slot).toEqual(expected);
+      expect(empty.type).toEqual('Empty');
+    });
+  });
+
+  describe('placeCatastropheTile', () => {
+    it('should create CatastropheTileSlot', () => {
+      const tile = createCatastropheTile();
+      const slot = empty.placeCatastropheTile(tile);
+      const expected = jasmine.objectContaining({
+        type: 'CatastropheTile',
+        tile
       });
       expect(slot).toEqual(expected);
       expect(empty.type).toEqual('Empty');
