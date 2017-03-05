@@ -15,7 +15,7 @@ describe('emptyBoardSpace', () => {
       const space = emptyBoardSpace(type);
       const expected = jasmine.objectContaining({
         type,
-        slot: {type: 'Empty'}
+        slot: jasmine.objectContaining({type: 'Empty'})
       });
       expect(space).toEqual(expected);
     });

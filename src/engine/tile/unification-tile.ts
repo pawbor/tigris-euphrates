@@ -1,7 +1,11 @@
-import {Tile, TileType} from './tile';
+import { Tile } from './tile';
 
-export function createUnificationTile(): Tile {
+export interface UnificationTile extends Tile {
+  type: 'UnificationTile';
+};
+
+export function createUnificationTile(): UnificationTile {
   return {
-    get type(): TileType { return 'UnificationTile'; }
+    get type(): 'UnificationTile' { return 'UnificationTile'; }
   };
 }

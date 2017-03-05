@@ -1,7 +1,11 @@
-import {Tile, TileType} from './tile';
+import { Tile } from './tile';
 
-export function createCatastropheTile(): Tile {
+export interface CatastropheTile extends Tile {
+  type: 'CatastropheTile';
+};
+
+export function createCatastropheTile(): CatastropheTile {
   return {
-    get type(): TileType { return 'CatastropheTile'; }
+    get type(): 'CatastropheTile' { return 'CatastropheTile'; }
   };
 }
