@@ -1,14 +1,16 @@
-import {Color} from '../common';
+import { Color } from 'engine/common';
+import { Content } from 'engine/content-slot';
 
-export interface Monument {
+export interface Monument extends Content {
   baseColor: Color;
   topColor: Color;
 };
 
-export function createMonument(baseColor: Color, topColor: Color): Monument {
+function createMonument(baseColor: Color, topColor: Color): Monument {
   return {
-    get baseColor() { return baseColor; },
-    get topColor() { return topColor; }
+    get contentType(): 'Monument' { return 'Monument'; },
+    get baseColor(): Color { return baseColor; },
+    get topColor(): Color { return topColor; }
   };
 }
 

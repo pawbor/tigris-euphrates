@@ -1,15 +1,19 @@
+import { Content } from 'engine/content-slot';
+
 import { Tile, TileType } from './tile';
 
 export type CivilizationSphere = 'Temple' | 'Farm' | 'Settlement' | 'Market';
 
-export interface CivilizationTile extends Tile {
-  type: 'CivilizationTile';
+export interface CivilizationTile extends Tile, Content {
+  contentType: 'CivilizationTile';
+  tileType: 'CivilizationTile';
   sphere: CivilizationSphere;
 };
 
 function createCivilizationTile(sphere: CivilizationSphere): CivilizationTile {
   return {
-    get type(): 'CivilizationTile' { return 'CivilizationTile'; },
+    get contentType(): 'CivilizationTile' { return 'CivilizationTile'; },
+    get tileType(): 'CivilizationTile' { return 'CivilizationTile'; },
     get sphere(): CivilizationSphere { return sphere; }
   };
 }

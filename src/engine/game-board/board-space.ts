@@ -1,16 +1,10 @@
-import { createEmptySlot } from './empty-slot';
+import { ContentSlot, createEmptySlot } from 'engine/content-slot';
 
 export type BoardSpaceType = 'Ground' | 'Water' | 'Temple';
 
-export type SlotType = 'Empty' | 'CivilizationTile' | 'CatastropheTile' | 'UnificationTile' | 'Leader';
-
-export interface BoardSpaceSlot {
-  type: SlotType;
-}
-
 export interface BoardSpace {
   type: BoardSpaceType;
-  slot: BoardSpaceSlot;
+  slot: ContentSlot;
 }
 
 export function emptyBoardSpace(type: BoardSpaceType): BoardSpace {
@@ -18,9 +12,9 @@ export function emptyBoardSpace(type: BoardSpaceType): BoardSpace {
   return createBoardSpace(type, slot);
 }
 
-function createBoardSpace(type: BoardSpaceType, slot: BoardSpaceSlot): BoardSpace {
+function createBoardSpace(type: BoardSpaceType, slot: ContentSlot): BoardSpace {
   return {
     get type(): BoardSpaceType { return type; },
-    get slot(): BoardSpaceSlot { return slot; }
+    get slot(): ContentSlot { return slot; }
   };
 }

@@ -1,16 +1,19 @@
-import {Dynasty} from '../common';
+import { Dynasty } from 'engine/common';
+import { Content } from 'engine/content-slot';
 
 export type LeaderRole = 'Farmer' | 'King' | 'Priest' | 'Trader';
 
-export interface Leader {
+export interface Leader extends Content {
+  contentType: 'Leader';
   dynasty: Dynasty;
   role: LeaderRole;
 }
 
 export function createLeader(role: LeaderRole, dynasty: Dynasty): Leader {
   return {
-    get dynasty() { return dynasty; },
-    get role() { return role; }
+    get contentType(): 'Leader' { return 'Leader'; },
+    get dynasty(): Dynasty { return dynasty; },
+    get role(): LeaderRole { return role; }
   };
 }
 

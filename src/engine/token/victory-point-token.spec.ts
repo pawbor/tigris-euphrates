@@ -1,62 +1,54 @@
 import {
-  createVictoryPointToken,
   createAmulets,
   createBricks,
   createCrops,
   createGoods
 } from './victory-point-token';
 
-describe('createVictoryPointToken', () => {
-  it('should create Amulets token', () => {
-    const tile = createVictoryPointToken('Amulets');
-    const expected = jasmine.objectContaining({
-      type: 'VictoryPointToken',
-      resource: 'Amulets'
-    });
-    expect(tile).toEqual(expected);
+describe('\n\nWHEN I create Amulets token', () => {
+  const token = createAmulets();
+
+  it('\nTHEN token should have valid token type', () => {
+    expect(token.tokenType).toEqual('VictoryPointToken');
+  });
+
+  it('\nTHEN token should have valid recource type', () => {
+    expect(token.resource).toEqual('Amulets');
   });
 });
 
-describe('createAmulets', () => {
-  it('should create Amulets token', () => {
-    const tile = createAmulets();
-    const expected = jasmine.objectContaining({
-      type: 'VictoryPointToken',
-      resource: 'Amulets'
-    });
-    expect(tile).toEqual(expected);
+describe('\n\nWHEN I create Bricks token', () => {
+  const token = createBricks();
+
+  it('\nTHEN token should have valid token type', () => {
+    expect(token.tokenType).toEqual('VictoryPointToken');
+  });
+
+  it('\nTHEN token should have valid recource type', () => {
+    expect(token.resource).toEqual('Bricks');
   });
 });
 
-describe('createBricks', () => {
-  it('should create Bricks token', () => {
-    const tile = createBricks();
-    const expected = jasmine.objectContaining({
-      type: 'VictoryPointToken',
-      resource: 'Bricks'
-    });
-    expect(tile).toEqual(expected);
+describe('\n\nWHEN I create Crops token', () => {
+  const token = createCrops();
+
+  it('\nTHEN token should have valid token type', () => {
+    expect(token.tokenType).toEqual('VictoryPointToken');
+  });
+
+  it('\nTHEN token should have valid recource type', () => {
+    expect(token.resource).toEqual('Crops');
   });
 });
 
-describe('createCrops', () => {
-  it('should create Crops token', () => {
-    const tile = createCrops();
-    const expected = jasmine.objectContaining({
-      type: 'VictoryPointToken',
-      resource: 'Crops'
-    });
-    expect(tile).toEqual(expected);
-  });
-});
+describe('\n\nWHEN I create Goods token', () => {
+  const token = createGoods();
 
-describe('createGoods', () => {
-  it('should create Goods token', () => {
-    const tile = createGoods();
-    const expected = jasmine.objectContaining({
-      type: 'VictoryPointToken',
-      resource: 'Goods'
-    });
-    expect(tile).toEqual(expected);
+  it('\nTHEN token should have valid token type', () => {
+    expect(token.tokenType).toEqual('VictoryPointToken');
+  });
+
+  it('\nTHEN token should have valid recource type', () => {
+    expect(token.resource).toEqual('Goods');
   });
 });

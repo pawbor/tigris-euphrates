@@ -10,7 +10,7 @@ export interface PlayerScreen {
   tokens: Token[];
 };
 
-export function createPlayerScreen(
+function createPlayerScreen(
   dynasty: Dynasty,
   leaders: Leader[],
   tiles: Tile[],

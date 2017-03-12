@@ -1,29 +1,39 @@
-import {
-  createMonument,
-  createAllMonuments
-} from './monument';
+import { createAllMonuments } from './monument';
 
-describe('createMonument', () => {
-  it('should create a monument', () => {
-    const baseColor = 'Red';
-    const topColor = 'Blue';
-    const leader = createMonument(baseColor, topColor);
-    const expected = jasmine.objectContaining({baseColor, topColor});
-    expect(leader).toEqual(expected);
+describe('\n\nWHEN I create all monuments', () => {
+  const monuments = createAllMonuments();
+
+  it('\nTHEN 6 monuments should be created', () => {
+    expect(monuments.length).toEqual(6);
   });
-});
 
-describe('createAllMonuments', () => {
-  it('should create an array of all monuments', () => {
-    const leader = createAllMonuments();
-    const expected = jasmine.arrayContaining([
-      jasmine.objectContaining({baseColor: 'Black', topColor: 'Blue'}),
-      jasmine.objectContaining({baseColor: 'Black', topColor: 'Green'}),
-      jasmine.objectContaining({baseColor: 'Black', topColor: 'Red'}),
-      jasmine.objectContaining({baseColor: 'Blue', topColor: 'Green'}),
-      jasmine.objectContaining({baseColor: 'Green', topColor: 'Red'}),
-      jasmine.objectContaining({baseColor: 'Red', topColor: 'Blue'}),
-    ]);
-    expect(leader).toEqual(expected);
+  it('\nTHEN Black/Blue monument should be created', () => {
+    const expected = jasmine.objectContaining({ baseColor: 'Black', topColor: 'Blue' });
+    expect(monuments).toContain(expected);
+  });
+
+  it('\nTHEN Black/Green monument should be created', () => {
+    const expected = jasmine.objectContaining({ baseColor: 'Black', topColor: 'Green' });
+    expect(monuments).toContain(expected);
+  });
+
+  it('\nTHEN Black/Red monument should be created', () => {
+    const expected = jasmine.objectContaining({ baseColor: 'Black', topColor: 'Red' });
+    expect(monuments).toContain(expected);
+  });
+
+  it('\nTHEN Blue/Green monument should be created', () => {
+    const expected = jasmine.objectContaining({ baseColor: 'Blue', topColor: 'Green' });
+    expect(monuments).toContain(expected);
+  });
+
+  it('\nTHEN Green/Red monument should be created', () => {
+    const expected = jasmine.objectContaining({ baseColor: 'Green', topColor: 'Red' });
+    expect(monuments).toContain(expected);
+  });
+
+  it('\nTHEN Red/Blue monument should be created', () => {
+    const expected = jasmine.objectContaining({ baseColor: 'Red', topColor: 'Blue' });
+    expect(monuments).toContain(expected);
   });
 });
