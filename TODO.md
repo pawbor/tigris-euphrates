@@ -1,10 +1,9 @@
 # TigrisEuphrates progress
-Current task: Add BoardSpace slot
-Subtask: leader slot
+Current task: Refactor content slot
 
 ## Additional tasks
 
-- [ ] Add BoardSpace slot
+- [x] Add BoardSpace slot
   - [x] empty
   - [x] civilization tile slot
     - [x] tile
@@ -13,6 +12,9 @@ Subtask: leader slot
   - [x] catastrophe tile slot
   - [x] unification tile slot
   - [x] leader
+- [ ] Refactor content slot
+- [ ] Refactor tests to Gherkin style
+  - [ ] Player screen
 
 ## Play the game - engine
 

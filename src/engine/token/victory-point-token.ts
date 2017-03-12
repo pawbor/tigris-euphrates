@@ -1,14 +1,15 @@
-import {Token, TokenType} from './token';
+import { Token } from './token';
 
 export type ResourceType = 'Amulets' | 'Bricks' | 'Crops' | 'Goods';
 
 export interface VictoryPointToken extends Token {
+  tokenType: 'VictoryPointToken';
   resource: ResourceType;
 }
 
-export function createVictoryPointToken(resource: ResourceType): VictoryPointToken {
+function createVictoryPointToken(resource: ResourceType): VictoryPointToken {
   return {
-    get type(): TokenType { return 'VictoryPointToken'; },
+    get tokenType(): 'VictoryPointToken' { return 'VictoryPointToken'; },
     get resource() { return resource; }
   };
 }

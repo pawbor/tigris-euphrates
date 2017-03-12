@@ -1,11 +1,13 @@
-import {
-  createTreasureToken
-} from './treasure-token';
+import { createTreasureToken } from './treasure-token';
 
-describe('createTreasureToken', () => {
-  it('should create a treasure token', () => {
-    const tile = createTreasureToken();
-    const expected = jasmine.objectContaining({type: 'TreasureToken'});
-    expect(tile).toEqual(expected);
+describe('\n\nWHEN I create treasure token', () => {
+  const token = createTreasureToken();
+
+  it('\nTHEN tile should have valid content type', () => {
+    expect(token.contentType).toEqual('TreasureToken');
+  });
+
+  it('\nTHEN tile should have valid tile type', () => {
+    expect(token.tokenType).toEqual('TreasureToken');
   });
 });

@@ -2,12 +2,12 @@ import { Monument } from 'engine/monument';
 import { CivilizationTile, UnificationTile } from 'engine/tile';
 import { TreasureToken } from 'engine/token';
 
-import { BoardSpaceSlot, SlotType } from './board-space';
+import { ContentSlot, ContentType } from './content-slot';
 import { EmptySlot } from './empty-slot';
 import { UnificationTileSlot, createUnificationTileSlot } from './unification-tile-slot';
 
-export interface CivilizationTileSlot extends BoardSpaceSlot {
-  type: 'CivilizationTile';
+export interface CivilizationTileSlot extends ContentSlot {
+  slotType: 'CivilizationTileSlot';
   tile: CivilizationTile;
   monument?: Monument;
   treasure?: TreasureToken;
@@ -16,9 +16,13 @@ export interface CivilizationTileSlot extends BoardSpaceSlot {
   placeUnificationTile(tile: UnificationTile): UnificationTileSlot;
 }
 
-export function createCivilizationTileSlot(tile: CivilizationTile, monument?: Monument, treasure?: TreasureToken): CivilizationTileSlot {
+export function newCivilizationTileSlot(tile: CivilizationTile) {
+  return createCivilizationTileSlot(tile);
+}
+
+function createCivilizationTileSlot(tile: CivilizationTile, monument?: Monument, treasure?: TreasureToken): CivilizationTileSlot {
   return {
-    get type(): 'CivilizationTile' { return 'CivilizationTile'; },
+    get slotType(): 'CivilizationTileSlot' { return 'CivilizationTileSlot'; },
     get monument(): Monument { return monument; },
     get tile(): CivilizationTile { return tile; },
     get treasure(): TreasureToken { return treasure; },
@@ -34,6 +38,11 @@ export function createCivilizationTileSlot(tile: CivilizationTile, monument?: Mo
     placeUnificationTile(tile: UnificationTile): UnificationTileSlot {
       return placeUnificationTile(this, tile);
     },
+    contains(contentType: ContentType): boolean {
+      return contentType === tile.contentType
+      || !!treasure && contentType === treasure.contentType
+      || !!monument && contentType === monument.contentType;
+    }
   };
 }
 
@@ -52,5 +61,11 @@ function placeMonument(slot: CivilizationTileSlot, monument: Monument): Civiliza
 }
 
 function placeUnificationTile(slot: CivilizationTileSlot, tile: UnificationTile): UnificationTileSlot {
-  return createUnificationTileSlot(slot, tile);
+  if (slot.treasure) {
+    throw new Error('civilization-tile-slot.treasure-placed');
+  }
+  if (slot.monument) {
+    throw new Error('civilization-tile-slot.monument-placed');
+  }
+  return createUnificationTileSlot(slot.tile, tile);
 }

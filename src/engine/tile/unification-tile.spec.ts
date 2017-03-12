@@ -2,10 +2,14 @@ import {
   createUnificationTile,
 } from './unification-tile';
 
-describe('createUnificationTile', () => {
-  it('should create a tile with UnificaionTile type', () => {
-    const tile = createUnificationTile();
-    const expected = jasmine.objectContaining({ type: 'UnificationTile' });
-    expect(tile).toEqual(expected);
+describe('\n\nWHEN I create unification tile', () => {
+  const tile = createUnificationTile();
+
+  it('\nTHEN tile should have valid content type', () => {
+    expect(tile.contentType).toEqual('UnificationTile');
+  });
+
+  it('\nTHEN tile should have valid tile type', () => {
+    expect(tile.tileType).toEqual('UnificationTile');
   });
 });

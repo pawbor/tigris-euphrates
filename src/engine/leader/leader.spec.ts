@@ -4,11 +4,7 @@ import {
   createKing,
   createPriest,
   createTrader,
-  createLeaders,
-  createArcherLeaders,
-  createBullLeaders,
-  createLionLeaders,
-  createPotLeaders
+  createLeaders
 } from './leader';
 
 describe('createLeader', () => {
