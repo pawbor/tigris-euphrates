@@ -1,4 +1,4 @@
-export { ContentSlot, Content, ContentType } from './content-slot';
+export { ContentSlot, Content } from './content-slot';
 
 export { EmptySlot, createEmptySlot } from './empty-slot';
 

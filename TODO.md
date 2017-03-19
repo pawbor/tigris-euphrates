@@ -1,5 +1,5 @@
 # TigrisEuphrates progress
-Current task: Refactor content slot
+Current task: content slot method - getContent
 
 ## Additional tasks
 
@@ -13,8 +13,14 @@ Current task: Refactor content slot
   - [x] unification tile slot
   - [x] leader
 - [ ] Refactor content slot
+  - [x] move to seperate folder
+  - [x] content slot factory
+- [ ] content slot methods
+  - [x] contains
+  - [x] getContent
 - [ ] Refactor tests to Gherkin style
   - [ ] Player screen
+- [ ] Refactor - freez objects instead of using getters
 
 ## Play the game - engine
 

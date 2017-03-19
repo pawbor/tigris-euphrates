@@ -1,6 +1,6 @@
 import { Content } from 'engine/content-slot';
 
-import { Tile, TileType } from './tile';
+import { Tile } from './tile';
 
 export type CivilizationSphere = 'Temple' | 'Farm' | 'Settlement' | 'Market';
 
