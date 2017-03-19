@@ -1,34 +1,57 @@
 import { createAllMonuments } from 'engine/monument';
 import { createFarm, createUnificationTile } from 'engine/tile';
-import { createTreasureToken } from 'engine/token';
 
-import { newCivilizationTileSlot } from './civilization-tile-slot';
+import { createCivilizationTileSlot } from './civilization-tile-slot';
 
 const tile = createFarm();
 const monument = createAllMonuments()[0];
-const treasure = createTreasureToken();
 const unificationTile = createUnificationTile();
 
 describe('\n\nWHEN I create new civilization tile slot', () => {
-  const slot = newCivilizationTileSlot(tile);
+  const slot = createCivilizationTileSlot(tile);
 
-  it('\nTHEN the slot should have valid type', () => {
+  it('\nTHEN the slot has valid type', () => {
     expect(slot.slotType).toBe('CivilizationTileSlot');
   });
 
-  it('\nTHEN the slot should contain the tile', () => {
+  it('\nTHEN the slot contains the tile', () => {
     expect(slot.tile).toBe(tile);
+    expect(slot.content[0]).toBe(tile);
   });
 });
 
-describe('\n\nGIVEN a civilization tile slot without monument and treasure', () => {
-  const slot = newCivilizationTileSlot(tile);
+describe('\n\nGIVEN a civilization tile slot', () => {
+  const slot = createCivilizationTileSlot(tile);
 
   describe('\nWHEN I check if it contains civilization tile', () => {
-    const contains = slot.contains('CivilizationTile');
+    const truthy = slot.contains(tile.contentType);
 
-    it('\nTHEN I should get true', () => {
-      expect(contains).toBeTruthy();
+    it('\nTHEN I get true', () => {
+      expect(truthy).toBeTruthy();
+    });
+  });
+
+  describe('\nWHEN I check if it contains something else', () => {
+    const falsy = slot.contains('OtherContent');
+
+    it('\nTHEN I get false', () => {
+      expect(falsy).toBeFalsy();
+    });
+  });
+
+  describe('\nWHEN I retrive civilization tile by content type', () => {
+    const retrived = slot.getContent(tile.contentType);
+
+    it('\nTHEN I get the tile', () => {
+      expect(retrived[0]).toBe(tile);
+    });
+  });
+
+  describe('\nWHEN I retrive something else', () => {
+    const retrived = slot.getContent('OtherContent');
+
+    it('\nTHEN I get nothing', () => {
+      expect(retrived).toEqual([]);
     });
   });
 
@@ -37,7 +60,6 @@ describe('\n\nGIVEN a civilization tile slot without monument and treasure', () 
 
     it('\nTHEN new slot should have valid type', () => {
       expect(newSlot.slotType).toBe('UnificationTileSlot');
-      expect(slot.slotType).toBe('CivilizationTileSlot');
     });
 
     it('\nTHEN new slot should contain unification tile', () => {
@@ -48,130 +70,16 @@ describe('\n\nGIVEN a civilization tile slot without monument and treasure', () 
       expect(newSlot.civilizationTile).toBe(slot.tile);
     });
   });
-});
-
-describe('\n\nGIVEN a civilization tile slot without a momunemnt', () => {
-  const slot = newCivilizationTileSlot(tile)
-    .placeTreasureToken(treasure);
-
-  describe('\nWHEN I check if it contains momument', () => {
-    const contains = slot.contains('Monument');
-
-    it('\nTHEN I should get false', () => {
-      expect(contains).toBeFalsy();
-    });
-  });
 
   describe('\nWHEN I place a momument in that slot', () => {
     const newSlot = slot.placeMonument(monument);
 
     it('\nTHEN new slot should have valid type', () => {
-      expect(newSlot.slotType).toBe('CivilizationTileSlot');
+      expect(newSlot.slotType).toBe('MonumentSlot');
     });
 
     it('\nTHEN new slot should contain monument', () => {
       expect(newSlot.monument).toBe(monument);
-      expect(slot.monument).not.toBeDefined();
-    });
-
-    it('\nTHEN civilization tile should not change', () => {
-      expect(newSlot.tile).toBe(slot.tile);
-    });
-
-    it('\nTHEN treasure should not change', () => {
-      expect(newSlot.treasure).toBe(slot.treasure);
-    });
-  });
-});
-
-describe('\n\nGIVEN a civilization tile slot with a monument', () => {
-  const slot = newCivilizationTileSlot(tile)
-    .placeMonument(monument);
-
-  describe('\nWHEN I check if it contains momument', () => {
-    const contains = slot.contains('Monument');
-
-    it('\nTHEN I should get true', () => {
-      expect(contains).toBeTruthy();
-    });
-  });
-
-  describe('\nWHEN I try to place a treasure in that slot', () => {
-    const callFn = () => slot.placeMonument(monument);
-
-    it('\nTHEN it should fali', () => {
-      expect(callFn).toThrowError('civilization-tile-slot.monument-placed');
-    });
-  });
-
-  describe('\nWHEN I try to place a unification tile in that slot', () => {
-    const callFn = () => slot.placeUnificationTile(unificationTile);
-
-    it('\nTHEN it should fali', () => {
-      expect(callFn).toThrowError('civilization-tile-slot.monument-placed');
-    });
-  });
-});
-
-describe('\n\nGIVEN a civilization tile slot without a treasure', () => {
-  const slot = newCivilizationTileSlot(tile)
-    .placeMonument(monument);
-
-  describe('\nWHEN I check if it contains treasure', () => {
-    const contains = slot.contains('TreasureToken');
-
-    it('\nTHEN I should get false', () => {
-      expect(contains).toBeFalsy();
-    });
-  });
-
-  describe('\nWHEN I place a treasure in that slot', () => {
-    const newSlot = slot.placeTreasureToken(treasure);
-
-    it('\nTHEN new slot should have valid type', () => {
-      expect(newSlot.slotType).toBe('CivilizationTileSlot');
-    });
-
-    it('\nTHEN new slot should contain treasure', () => {
-      expect(newSlot.treasure).toBe(treasure);
-      expect(slot.treasure).not.toBeDefined();
-    });
-
-    it('\nTHEN civilization tile should not change', () => {
-      expect(newSlot.tile).toBe(slot.tile);
-    });
-
-    it('\nTHEN monument should not change', () => {
-      expect(newSlot.monument).toBe(slot.monument);
-    });
-  });
-});
-
-describe('\n\nGIVEN a civilization tile slot with a treasure', () => {
-  const slot = newCivilizationTileSlot(tile)
-    .placeTreasureToken(treasure);
-
-  describe('\nWHEN I check if it contains treasure', () => {
-    const contains = slot.contains('TreasureToken');
-
-    it('\nTHEN I should get true', () => {
-      expect(contains).toBeTruthy();
-    });
-  });
-
-  describe('\nWHEN I try to place a treasure in that slot', () => {
-    const callFn = () => slot.placeTreasureToken(treasure);
-
-    it('\nTHEN it should fali', () => {
-      expect(callFn).toThrowError('civilization-tile-slot.treasure-placed');
-    });
-  });
-
-  describe('\nWHEN I try to place a unification tile in that slot', () => {
-    const callFn = () => slot.placeUnificationTile(unificationTile);
-
-    it('\nTHEN it should fali', () => {
-      expect(callFn).toThrowError('civilization-tile-slot.treasure-placed');
     });
   });
 });

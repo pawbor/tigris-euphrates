@@ -1,7 +1,7 @@
-import {Dynasty} from '../common';
-import {Leader, createLeaders} from '../leader';
-import {Tile, createCatastropheTile, createUnificationTile} from '../tile';
-import {Token} from '../token';
+import { Dynasty } from 'engine/common';
+import { Leader, createLeaders } from 'engine/leader';
+import { Tile, createCatastropheTile, createUnificationTile } from 'engine/tile';
+import { Token } from 'engine/token';
 
 export interface PlayerScreen {
   dynasty: Dynasty;

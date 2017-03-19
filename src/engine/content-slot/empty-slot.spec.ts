@@ -1,12 +1,12 @@
 import { createLeaders } from 'engine/leader';
 import { createFarm, createCatastropheTile } from 'engine/tile';
 
-import { EmptySlot, createEmptySlot } from './empty-slot';
+import { createEmptySlot } from './empty-slot';
 
 describe('\n\nWHEN I create new empty slot', () => {
   const slot = createEmptySlot();
 
-  it('\nTHEN the slot should have valid type', () => {
+  it('\nTHEN the slot has valid type', () => {
     expect(slot.slotType).toEqual('EmptySlot');
   });
 });
@@ -17,7 +17,7 @@ describe('\n\nGIVEN an empty slot', () => {
   describe('\nWHEN I check if it contains something', () => {
     const contains = slot.contains('Monument');
 
-    it('\nTHEN I should get false', () => {
+    it('\nTHEN I get false', () => {
       expect(contains).toBeFalsy();
     });
   });
@@ -26,12 +26,11 @@ describe('\n\nGIVEN an empty slot', () => {
     const tile = createFarm();
     const newSlot = slot.placeCivilizationTile(tile);
 
-    it('\nTHEN new slot should have valid type', () => {
+    it('\nTHEN new slot has valid type', () => {
       expect(newSlot.slotType).toBe('CivilizationTileSlot');
-      expect(slot.slotType).toBe('EmptySlot');
     });
 
-    it('\nTHEN new slot should contain civilization tile', () => {
+    it('\nTHEN new slot contains civilization tile', () => {
       expect(newSlot.tile).toBe(tile);
     });
   });
@@ -40,12 +39,11 @@ describe('\n\nGIVEN an empty slot', () => {
     const tile = createCatastropheTile();
     const newSlot = slot.placeCatastropheTile(tile);
 
-    it('\nTHEN new slot should have valid type', () => {
+    it('\nTHEN new slot has valid type', () => {
       expect(newSlot.slotType).toBe('CatastropheTileSlot');
-      expect(slot.slotType).toBe('EmptySlot');
     });
 
-    it('\nTHEN new slot should contain catastrophe tile', () => {
+    it('\nTHEN new slot contains catastrophe tile', () => {
       expect(newSlot.tile).toBe(tile);
     });
   });
@@ -54,12 +52,11 @@ describe('\n\nGIVEN an empty slot', () => {
     const leader = createLeaders('Bull')[0];
     const newSlot = slot.placeLeader(leader);
 
-    it('\nTHEN new slot should have valid type', () => {
+    it('\nTHEN new slot has valid type', () => {
       expect(newSlot.slotType).toBe('LeaderSlot');
-      expect(slot.slotType).toBe('EmptySlot');
     });
 
-    it('\nTHEN new slot should contain leader', () => {
+    it('\nTHEN new slot contains leader', () => {
       expect(newSlot.leader).toBe(leader);
     });
   });
