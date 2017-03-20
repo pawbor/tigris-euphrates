@@ -5,17 +5,16 @@ import { Tile } from './tile';
 export type CivilizationSphere = 'Temple' | 'Farm' | 'Settlement' | 'Market';
 
 export interface CivilizationTile extends Tile, Content {
-  contentType: 'CivilizationTile';
-  tileType: 'CivilizationTile';
   sphere: CivilizationSphere;
 };
 
+
 function createCivilizationTile(sphere: CivilizationSphere): CivilizationTile {
-  return {
-    get contentType(): 'CivilizationTile' { return 'CivilizationTile'; },
-    get tileType(): 'CivilizationTile' { return 'CivilizationTile'; },
-    get sphere(): CivilizationSphere { return sphere; }
-  };
+  return Object.freeze({
+    contentType: ['CivilizationTile', sphere],
+    tileType: 'CivilizationTile',
+    sphere
+  });
 }
 
 export function createTemple(): CivilizationTile {

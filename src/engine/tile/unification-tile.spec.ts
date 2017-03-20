@@ -6,7 +6,7 @@ describe('\n\nWHEN I create unification tile', () => {
   const tile = createUnificationTile();
 
   it('\nTHEN tile should have valid content type', () => {
-    expect(tile.contentType).toEqual('UnificationTile');
+    expect(tile.contentType).toContain('UnificationTile');
   });
 
   it('\nTHEN tile should have valid tile type', () => {

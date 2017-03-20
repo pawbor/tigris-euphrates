@@ -13,7 +13,7 @@ describe('\n\nWHEN I create Amulets token', () => {
   });
 
   it('\nTHEN token should have valid recource type', () => {
-    expect(token.resource).toEqual('Amulets');
+    expect(token.resourceType).toEqual('Amulets');
   });
 });
 
@@ -25,7 +25,7 @@ describe('\n\nWHEN I create Bricks token', () => {
   });
 
   it('\nTHEN token should have valid recource type', () => {
-    expect(token.resource).toEqual('Bricks');
+    expect(token.resourceType).toEqual('Bricks');
   });
 });
 
@@ -37,7 +37,7 @@ describe('\n\nWHEN I create Crops token', () => {
   });
 
   it('\nTHEN token should have valid recource type', () => {
-    expect(token.resource).toEqual('Crops');
+    expect(token.resourceType).toEqual('Crops');
   });
 });
 
@@ -49,6 +49,6 @@ describe('\n\nWHEN I create Goods token', () => {
   });
 
   it('\nTHEN token should have valid recource type', () => {
-    expect(token.resource).toEqual('Goods');
+    expect(token.resourceType).toEqual('Goods');
   });
 });

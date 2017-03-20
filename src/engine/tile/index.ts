@@ -1,4 +1,4 @@
-export { Tile, TileType } from './tile'
+export { Tile } from './tile'
 
 export { UnificationTile, createUnificationTile } from './unification-tile'
 

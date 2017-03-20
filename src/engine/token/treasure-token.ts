@@ -2,14 +2,11 @@ import { Content } from 'engine/content-slot';
 
 import { Token } from './token';
 
-export interface TreasureToken extends Token, Content {
-  contentType: 'TreasureToken';
-  tokenType: 'TreasureToken';
-}
+export interface TreasureToken extends Token, Content {}
 
 export function createTreasureToken(): TreasureToken {
-  return {
-    get contentType(): 'TreasureToken' { return 'TreasureToken'; },
-    get tokenType(): 'TreasureToken' { return 'TreasureToken'; }
-  };
+  return Object.freeze({
+    contentType: ['TreasureToken'],
+    tokenType: 'TreasureToken'
+  });
 }

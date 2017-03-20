@@ -4,7 +4,7 @@ describe('\n\nWHEN I create treasure token', () => {
   const token = createTreasureToken();
 
   it('\nTHEN tile should have valid content type', () => {
-    expect(token.contentType).toEqual('TreasureToken');
+    expect(token.contentType).toContain('TreasureToken');
   });
 
   it('\nTHEN tile should have valid tile type', () => {

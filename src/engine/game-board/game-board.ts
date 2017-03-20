@@ -1,46 +1,33 @@
-import {
-  BoardSpace,
-  BoardSpaceType,
-  emptyBoardSpace
-} from './board-space';
+import { BoardSpace } from './board-space';
+import { BoardRow, initBoardRow } from './game-board-row';
+import { GameBoardDef, validateGameBoardDef } from './game-board-def';
 
-export type GameBoardDef = BoardRowDef[];
+export interface GameBoard {
+  rows: number;
+  cols: number;
+  getSpace(row: number, column: number): BoardSpace;
+}
 
-export type BoardRowDef = BoardSpaceType[];
-
-export type GameBoard = BoardRow[];
-
-export type BoardRow = BoardSpace[];
-
-export function createGameBoard(boardDef: GameBoardDef): GameBoard {
+export function initGameBoard(boardDef: GameBoardDef): GameBoard {
   const error = validateGameBoardDef(boardDef);
   if (error) {
     throw new Error(error);
   }
 
-  return boardDef.map(
-    (rowDef) => rowDef.map(
-      (type) => emptyBoardSpace(type)
-    )
-  );
+  const rows = boardDef.map(initBoardRow);
+  return createGameBoard(rows);
 }
 
-export function validateGameBoardDef(boardDef: GameBoardDef): string {
-  const empty = !boardDef.length;
-  if (empty) {
-    return 'game-board.empty';
-  }
-
-  const rowSize = boardDef[0].length;
-  const emptyRow = !rowSize;
-  if (emptyRow) {
-    return 'game-board.empty-row';
-  }
-
-  const notEven = boardDef.slice(1).some(
-    (row) => row.length !== rowSize
-  );
-  if (notEven) {
-    return 'game-board.not-even';
-  }
+function createGameBoard(rows: BoardRow[]): GameBoard {
+  return Object.freeze({
+    get rows(): number {
+      return rows.length;
+    },
+    get cols(): number {
+      return rows[0].size;
+    },
+    getSpace(row: number, column: number): BoardSpace {
+      return rows[row].getSpace(column);
+    }
+  });
 }
