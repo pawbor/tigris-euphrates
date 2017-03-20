@@ -1,1 +1,1 @@
-export { createGameBoard } from './game-board';
+export { initGameBoard } from './game-board';

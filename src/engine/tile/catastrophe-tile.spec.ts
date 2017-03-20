@@ -6,7 +6,7 @@ describe('\n\nWHEN I create catastrophe tile', () => {
   const tile = createCatastropheTile();
 
   it('\nTHEN tile should have valid content type', () => {
-    expect(tile.contentType).toEqual('CatastropheTile');
+    expect(tile.contentType).toContain('CatastropheTile');
   });
 
   it('\nTHEN tile should have valid tile type', () => {

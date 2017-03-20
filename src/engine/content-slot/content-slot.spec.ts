@@ -2,9 +2,9 @@ import { createContentSlot } from './content-slot';
 
 const slotType = 'TestSlot';
 const content = [
-  {contentType: 'Content1'},
-  {contentType: 'Content1'},
-  {contentType: 'Content2'}
+  { contentType: ['Content1', 'Content3'] },
+  { contentType: ['Content2', 'Content3'] },
+  { contentType: ['Content1', 'Content2'] }
 ];
 
 describe('\n\nWHEN I create new content slot', () => {
@@ -23,8 +23,8 @@ describe('\n\nGIVEN a content slot', () => {
   const slot = createContentSlot(slotType, content);
 
   describe('\nWHEN I check if it contains some type of content', () => {
-    const truthy = slot.contains(content[0].contentType);
-    const falsy = slot.contains('OtherContent');
+    const truthy = slot.contains(['Content1']);
+    const falsy = slot.contains(['Content1', 'Content2', 'Content3']);
 
     it('\nTHEN I get true if it does', () => {
       expect(truthy).toBeTruthy();
@@ -36,14 +36,19 @@ describe('\n\nGIVEN a content slot', () => {
   });
 
   describe('\nWHEN I try to retrive content by type', () => {
-    const retrived1 = slot.getContent('Content1');
-    const retrived2 = slot.getContent('Content2');
-    const retrivedOther = slot.getContent('OtherContent');
+    const single = slot.getContent(content[0].contentType);
+    const many = slot.getContent(['Content1']);
+    const none = slot.getContent(['Content1', 'Content2', 'Content3']);
 
     it('\nTHEN I get all matching content', () => {
-      expect(retrived1.length).toBe(2);
-      expect(retrived2.length).toBe(1);
-      expect(retrivedOther.length).toBe(0);
+      expect(single.length).toBe(1);
+      expect(single).toContain(content[0]);
+
+      expect(many.length).toBe(2);
+      expect(many).toContain(content[0]);
+      expect(many).toContain(content[2]);
+
+      expect(none.length).toBe(0);
     });
   });
 });

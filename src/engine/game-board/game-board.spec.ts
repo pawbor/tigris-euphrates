@@ -1,71 +1,73 @@
-import {
-  BoardSpaceType,
-} from './board-space';
+import { initGameBoard } from './game-board';
+import { GameBoardDef } from './game-board-def';
 
-import {
-  GameBoardDef,
-  createGameBoard,
-  validateGameBoardDef
-} from './game-board';
+describe('\n\nGIVEN a valid game board definition', () => {
+  const def: GameBoardDef = [
+    ['Water', 'Temple', 'Ground'],
+    ['Temple', 'Ground', 'Water']
+  ];
 
-describe('createGameBoard', () => {
-  it('should create a GameBoard object from GameBoardDef', () => {
-    const def: GameBoardDef = [
-      ['Ground', 'Temple'],
-      ['Water', 'Ground']
-    ];
-    const board = createGameBoard(def);
-    const expected = def.map(
-      (row) => row.map(
-        (type) => jasmine.objectContaining({type}),
-      )
-    );
-    expect(board).toEqual(expected);
-  });
+  describe('\nWHEN I initialize game board', () => {
+    const board = initGameBoard(def);
 
-  it('should throw an error if GameBoardDef is invalid', () => {
-    const def: GameBoardDef = [
-      ['Temple'],
-      ['Water', 'Ground']
-    ];
+    it('\nTHEN number of rows matches definition', () => {
+      expect(board.rows).toEqual(2);
+    });
 
-    expect(() => createGameBoard(def)).toThrowError();
+    it('\nTHEN number of spaces in a row matches definition', () => {
+      expect(board.cols).toEqual(3);
+    });
+
+    it('\nTHEN types of spaces matches definition', () => {
+      def.forEach((row, rowNo) => {
+        row.forEach((spaceType, colNo) => {
+          const space = board.getSpace(rowNo, colNo);
+          expect(space.type).toEqual(spaceType);
+        });
+      });
+    });
+
+    it('\nTHEN Water spaces are empty', () => {
+      const space = board.getSpace(0, 0);
+      expect(space.type).toEqual('Water');
+      expect(space.isEmpty).toBeTruthy();
+    });
+
+    it('\nTHEN Ground spaces are empty', () => {
+      const space = board.getSpace(1, 1);
+      expect(space.type).toEqual('Ground');
+      expect(space.isEmpty).toBeTruthy();
+    });
+
+    describe('\nTHEN Temple spaces contain', () => {
+      const space = board.getSpace(1, 0);
+
+      it('temple tile', () => {
+        const temple = space.contains(['Temple']);
+        expect(space.type).toEqual('Temple');
+        expect(temple).toBeTruthy();
+      });
+
+      it('treasure token', () => {
+        const treasure = space.contains(['TreasureToken']);
+        expect(space.type).toEqual('Temple');
+        expect(treasure).toBeTruthy();
+      });
+    });
   });
 });
 
-describe('validateGameBoardDef', () => {
-  it('should return undefined if GameBoardDef is valid', () => {
-    const def: GameBoardDef = [
-      ['Ground'],
-      ['Water']
-    ];
-    const result = validateGameBoardDef(def);
-    expect(result).toBeUndefined();
-  });
+describe('\n\nGIVEN an invalid game board definition', () => {
+  const def: GameBoardDef = [
+    ['Temple'],
+    ['Water', 'Ground']
+  ];
 
-  it('should return error string if GameBoardDef is empty', () => {
-    const def: GameBoardDef = [];
-    const result = validateGameBoardDef(def);
-    expect(result).toEqual('game-board.empty');
-  });
+  describe('\nWHEN I try to initialize game board', () => {
+    const tryFn = () => initGameBoard(def);
 
-  it('should return error string if first GameBoardDef row is empty', () => {
-    const def: GameBoardDef = [
-      [],
-      ['Water', 'Ground']
-    ];
-
-    const result = validateGameBoardDef(def);
-    expect(result).toEqual('game-board.empty-row');
-  });
-
-  it('should return error string if GameBoardDef rows are not even', () => {
-    const def: GameBoardDef = [
-      ['Temple'],
-      ['Water', 'Ground']
-    ];
-
-    const result = validateGameBoardDef(def);
-    expect(result).toEqual('game-board.not-even');
+    it('\nTHEN error is thrown', () => {
+      expect(tryFn).toThrowError();
+    });
   });
 });

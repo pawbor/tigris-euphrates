@@ -7,11 +7,11 @@ export interface Monument extends Content {
 };
 
 function createMonument(baseColor: Color, topColor: Color): Monument {
-  return {
-    get contentType(): 'Monument' { return 'Monument'; },
-    get baseColor(): Color { return baseColor; },
-    get topColor(): Color { return topColor; }
-  };
+  return Object.freeze({
+    contentType: ['Monument', baseColor, topColor],
+    baseColor,
+    topColor
+  });
 }
 
 export function createAllMonuments(): Monument[] {

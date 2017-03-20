@@ -9,7 +9,8 @@ describe('\n\nWHEN I create Farm tile', () => {
   const tile = createFarm();
 
   it('\nTHEN tile should have valid content type', () => {
-    expect(tile.contentType).toEqual('CivilizationTile');
+    expect(tile.contentType).toContain('CivilizationTile');
+    expect(tile.contentType).toContain('Farm');
   });
 
   it('\nTHEN tile should have valid tile type', () => {
@@ -25,7 +26,8 @@ describe('\n\nWHEN I create Market tile', () => {
   const tile = createMarket();
 
   it('\nTHEN tile should have valid content type', () => {
-    expect(tile.contentType).toEqual('CivilizationTile');
+    expect(tile.contentType).toContain('CivilizationTile');
+    expect(tile.contentType).toContain('Market');
   });
 
   it('\nTHEN tile should have valid tile type', () => {
@@ -41,7 +43,8 @@ describe('\n\nWHEN I create Settlement tile', () => {
   const tile = createSettlement();
 
   it('\nTHEN tile should have valid content type', () => {
-    expect(tile.contentType).toEqual('CivilizationTile');
+    expect(tile.contentType).toContain('CivilizationTile');
+    expect(tile.contentType).toContain('Settlement');
   });
 
   it('\nTHEN tile should have valid tile type', () => {
@@ -57,7 +60,8 @@ describe('\n\nWHEN I create Temple tile', () => {
   const tile = createTemple();
 
   it('\nTHEN tile should have valid content type', () => {
-    expect(tile.contentType).toEqual('CivilizationTile');
+    expect(tile.contentType).toContain('CivilizationTile');
+    expect(tile.contentType).toContain('Temple');
   });
 
   it('\nTHEN tile should have valid tile type', () => {

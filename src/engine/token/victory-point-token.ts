@@ -3,15 +3,14 @@ import { Token } from './token';
 export type ResourceType = 'Amulets' | 'Bricks' | 'Crops' | 'Goods';
 
 export interface VictoryPointToken extends Token {
-  tokenType: 'VictoryPointToken';
-  resource: ResourceType;
+  resourceType: ResourceType;
 }
 
-function createVictoryPointToken(resource: ResourceType): VictoryPointToken {
-  return {
-    get tokenType(): 'VictoryPointToken' { return 'VictoryPointToken'; },
-    get resource() { return resource; }
-  };
+function createVictoryPointToken(resourceType: ResourceType): VictoryPointToken {
+  return Object.freeze({
+    tokenType: 'VictoryPointToken',
+    resourceType
+  });
 }
 
 export function createAmulets(): VictoryPointToken {

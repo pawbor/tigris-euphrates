@@ -46,7 +46,7 @@ describe('\n\nGIVEN a treasure monument slot', () => {
 
   describe('\nWHEN I check if it contains something else',
     () => {
-      const falsy = slot.contains('OtherContent');
+      const falsy = slot.contains(['OtherContent']);
 
       it('\nTHEN I get false', () => {
         expect(falsy).toBeFalsy();
@@ -71,7 +71,7 @@ describe('\n\nGIVEN a treasure monument slot', () => {
   });
 
   describe('\nWHEN I retrive something else', () => {
-    const retrived = slot.getContent('OtherContent');
+    const retrived = slot.getContent(['OtherContent']);
 
     it('\nTHEN I get nothing', () => {
       expect(retrived).toEqual([]);

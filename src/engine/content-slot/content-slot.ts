@@ -1,12 +1,12 @@
 export interface Content {
-  contentType: string;
+  contentType: string[];
 }
 
 export interface ContentSlot {
   slotType: string;
   content: ReadonlyArray<Content>;
-  contains(contentType: string): boolean;
-  getContent(contentType: string): Content[];
+  contains(contentType: string[]): boolean;
+  getContent(contentType: string[]): Content[];
 };
 
 export const Errors = {
@@ -20,17 +20,19 @@ export function createContentSlot(
   return Object.freeze({
     slotType,
     content: Object.freeze(content.slice()),
-    contains(contentType: string): boolean {
+    contains(contentType: string[]): boolean {
       const matchFn = getMatchPredicate(contentType);
       return content.some(matchFn);
     },
-    getContent(contentType: string): Content[] {
+    getContent(contentType: string[]): Content[] {
       const matchFn = getMatchPredicate(contentType);
       return content.filter(matchFn);
     }
   });
 }
 
-function getMatchPredicate(contentType: string) {
-  return (content: Content) => content.contentType === contentType;
+function getMatchPredicate(contentType: string[]) {
+  return (content: Content) => contentType.every(
+    (el) => content.contentType.indexOf(el) >= 0
+  );
 }

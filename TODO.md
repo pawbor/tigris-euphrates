@@ -1,5 +1,5 @@
 # TigrisEuphrates progress
-Current task: content slot method - getContent
+Current task: initialize game board with temples and treasures
 
 ## Additional tasks
 
@@ -40,17 +40,14 @@ Current task: content slot method - getContent
   - [ ] shedu idol (*)
 
 - [ ] setup
-  - [ ] game board
-    - [ ] place temples
-    - [ ] place treasures
-  - [ ] reserves
-    - [ ] fill cloth bag
-    - [ ] prepare monuments
-  - [ ] dynasties
+  - [ ] prepare game board
+  - [ ] prepare civilization tiles
+  - [ ] place temples & treasures
+  - [ ] prepare monuments
+  - [ ] prepare dynasties
     - [ ] leaders
     - [ ] unification tile
     - [ ] catastrophe tiles
-    - [ ] screen
     - [ ] civilization tiles
   - [ ] choose starting player
  
