@@ -1,6 +1,6 @@
 import { TigrisEuphratesPage } from './app.po';
 
-describe('tigris-euphrates App', function() {
+describe('tigris-euphrates App', () => {
   let page: TigrisEuphratesPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('tigris-euphrates App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('te works!');
   });
 });
