@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import * as Engine from 'engine';
 
 @Component({
-  selector: 'app-root',
+  selector: 'te-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
-  Engine = Engine;
+  title = 'te works!';
 }

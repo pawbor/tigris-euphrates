@@ -6,6 +6,6 @@ export class TigrisEuphratesPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('te-root h1')).getText();
   }
 }
